@@ -1,0 +1,23 @@
+.forecast {
+  display: grid;
+
+  &__day {
+    grid-column: 1/3;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding-top: 60px;
+  }
+
+  &__temperature {
+    font-size: 62px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 61px;
+  }
+  &__icon {
+    height: 60px;
+    width: 60px;
+  }
+}

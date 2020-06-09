@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link href="styles/styles.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"
+    />
+    <link href="font/Montserrat-Regular.ttf" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navigation navbar navbar-expand-lg navbar-light">
+      <div class="navigation__buttons navbar-nav mr-auto mt-2 mt-lg-0">
+        <div>
+          <button class="btn btn-secondary" type="submit">
+            <i class="fas fa-sync"></i>
+          </button>
+        </div>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            En
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">En</button>
+            <button class="dropdown-item" type="button">Ru</button>
+            <button class="dropdown-item" type="button">Pl</button>
+          </div>
+        </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" checked /> °F
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" /> °C
+          </label>
+        </div>
+      </div>
+      <form id="search-form" class="form-inline"></form>
+    </nav>
+
+    <div class="container weather">
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <div class="row">
+            <div id="city-data" class="col"></div>
+          </div>
+
+          <div id="weather-data" class="row"></div>
+          <div id="forecast-data" class="row"></div>
+        </div>
+        <div class="location col-12 col-lg-5">
+          <div id="map" class="location__map"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

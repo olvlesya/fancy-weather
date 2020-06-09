@@ -1,0 +1,34 @@
+.weather {
+  color: #fff;
+
+  &__location {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__data {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-family: 'Montserrat-Regular';
+  }
+  &__temperature-today {
+    font-size: 270px;
+    text-align: center;
+    line-height: 270px;
+    font-weight: 700;
+  }
+  &__rain-img {
+    width: 100%;
+    transform: translateY(-20%);
+  }
+  &__data-cluster {
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    transform: translateY(-15%);
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}
