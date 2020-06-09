@@ -73,7 +73,7 @@ class Map {
 
     // Creating a Layer object
     const layer = new L.TileLayer(
-      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     );
 
     // Adding layer to the map
@@ -192,7 +192,7 @@ class Forecast {
 
       const img = document.createElement('img');
       img.classList.add('forecast__icon');
-      img.src = `http:${dayData.day.condition.icon}`;
+      img.src = `https:${dayData.day.condition.icon}`;
       wrapper.appendChild(img);
 
       this.parent.appendChild(wrapper);
@@ -210,7 +210,7 @@ class Weather {
   update({ temp_c, condition, feelslike_c, wind_kph, humidity }) {
     const { text, icon } = condition;
     this.temperature.innerText = Math.round(temp_c);
-    this.image.src = `http:${icon}`;
+    this.image.src = `https:${icon}`;
 
     this.dataCluster.innerHTML = '';
 
