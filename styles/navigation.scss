@@ -1,0 +1,50 @@
+.navigation {
+  font-family: 'Montserrat-Regular';
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 8px;
+  color: #fff;
+
+  &__buttons > div {
+    margin-left: 10px;
+  }
+
+  &__buttons > div:first-child {
+    margin-left: 0;
+  }
+
+  form {
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: #4b5259;
+      color: #fff;
+      &::placeholder {
+        color: #fff;
+      }
+      &:focus {
+        color: #fff;
+        background-color: darken(#4b5259, 5%);
+      }
+    }
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  .dropdown-toggle {
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  .dropdown-item {
+    background-color: #4b5259;
+    color: #fff;
+    &:hover {
+      background-color: #6c757d;
+    }
+  }
+  .dropdown-menu {
+    background-color: #4b5259;
+  }
+}
