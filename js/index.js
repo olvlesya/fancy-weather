@@ -8,6 +8,13 @@ const apiKeyGeo = 'dcb27ce8a7e240bc81680f4b36b918a9';
 const apiGeolocationUrl =
   'https://api.opencagedata.com/geocode/v1/json?q=Minsk&pretty=1&no_annotations=1';
 
+const geoKey = '9ddb5df96e27b2';
+
+const geoUserLocation = () =>
+  fetch(`${corsHack}https://ipinfo.io/json?token=${geoKey}`).then((r) =>
+    r.json(),
+  );
+
 const getCityWeather = (city) =>
   fetch(
     `${corsHack}${apiURL}?key=${apiKey}&q=${city}&lang=en&days=3`,
@@ -34,19 +41,22 @@ const backgroundUpdate = async () => {
     }
   }
   const images = imagesGenerator();
-  images.next(); // undefined
-  document.body.style.background = `url(${images.next().value})`;
 
-  console.log(images.next().value);
-
-  setInterval(() => {
+  const updateBodyBackground = () => {
     const curImage = images.next().value;
     document.body.style.background = `url(${curImage || images.next().value})`;
-  }, 40000);
+  };
+  updateBodyBackground();
+
+  document
+    .getElementById('refresh-background')
+    .addEventListener('click', updateBodyBackground);
+
+  setInterval(updateBodyBackground, 40000);
 };
 backgroundUpdate();
 
-class Map {
+class LocationMap {
   constructor(selector) {
     this.selector = selector;
 
@@ -60,8 +70,8 @@ class Map {
   }
 
   render() {
-    const lat = 50.0614;
-    const lon = 19.9366;
+    const lat = 0;
+    const lon = 0;
     // Creating map options
     const mapOptions = {
       center: [lat, lon],
@@ -99,7 +109,12 @@ class CitySearch {
     this.forecast = forecast;
 
     this.render();
-    this.loadCity('Cracow');
+    this.loadCityByGeolocation();
+  }
+
+  async loadCityByGeolocation() {
+    const { loc } = await geoUserLocation();
+    this.loadCity(loc);
   }
 
   loadCity(city) {
@@ -253,7 +268,7 @@ class Weather {
 
 const city = new CityData(document.getElementById('city-data'));
 const weather = new Weather(document.getElementById('weather-data'));
-const map = new Map('map');
+const map = new LocationMap('map');
 const forecast = new Forecast(document.getElementById('forecast-data'));
 
 const search = new CitySearch(
